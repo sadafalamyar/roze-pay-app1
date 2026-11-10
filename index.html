@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -14,7 +13,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <!-- Google Fonts -->
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Vazirmatn:wght@400;500;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;700;800&display=swap');
       body {
         font-family: 'Plus Jakarta Sans', sans-serif;
       }
@@ -23,7 +22,7 @@
       }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950 min-h-screen pb-16">
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950 min-h-screen pb-20">
     <div id="root"></div>
 
     <script type="text/babel">
@@ -42,7 +41,6 @@
           const [txFilter, setTxFilter] = useState('All');
           const [searchQuery, setSearchQuery] = useState('');
 
-          // Complete Debt Ledger State
           const [debts, setDebts] = useState([
             { id: 1, name: "Sardar Wali", phone: "+93 70 123 4567", details: "Flour (50kg), Cooking Oil 5L • Oct 20, 2026", amount: 45.00, status: "Pending" },
             { id: 2, name: "Gul Khan", phone: "+93 79 987 6543", details: "Green Tea & Sugar • Oct 22, 2026", amount: 18.50, status: "Pending" },
@@ -68,17 +66,17 @@
               tagline: "Afghan Digital Wallet & Fintech Platform",
               consumerPortal: "Consumer Wallet",
               merchantPortal: "Merchant Hub",
-              wallet: "Wallet & Cards",
-              transfer: "P2P Transfer",
-              scanner: "QR Scanner",
-              transactions: "Transactions",
-              dashboard: "Sales & Analytics",
-              debtLedger: "Sharia Debt Ledger",
-              counterQr: "Counter QR Stand",
-              taxReports: "Tax & Reports",
+              wallet: "Wallet",
+              transfer: "Transfer",
+              scanner: "Scan QR",
+              transactions: "History",
+              dashboard: "Analytics",
+              debtLedger: "Debt Ledger",
+              counterQr: "Counter QR",
+              taxReports: "Tax Reports",
               totalBalance: "Total Wallet Balance",
               send: "Send",
-              scanQr: "Scan QR",
+              scanQr: "Scan",
               cashOut: "Cash Out",
               request: "Request",
               creditLimit: "RozeScore™ Micro-Credit",
@@ -90,17 +88,17 @@
               tagline: "کیف پول دیجیتال و پلتفرم فین‌تک افغانستان",
               consumerPortal: "کیف پول مشتری",
               merchantPortal: "مرکز تجاری",
-              wallet: "کیف پول و کارت‌ها",
+              wallet: "کیف پول",
               transfer: "انتقال وجه",
-              scanner: "اسکنر QR",
+              scanner: "اسکن QR",
               transactions: "تراکنش‌ها",
-              dashboard: "فروش و تحلیل",
-              debtLedger: "دفترچه قرض (شرعی)",
+              dashboard: "تحلیل فروش",
+              debtLedger: "دفترچه قرض",
               counterQr: "بارکد پیشخوان",
-              taxReports: "مالیات و گزارشات",
+              taxReports: "مالیات",
               totalBalance: "مجموع موجودی کیف پول",
               send: "ارسال",
-              scanQr: "اسکن QR",
+              scanQr: "اسکن",
               cashOut: "برداشت",
               request: "درخواست",
               creditLimit: "اعتبار خرد روزه‌اسکور™",
@@ -136,150 +134,146 @@
           };
 
           return (
-            <div dir={lang === 'fa' ? 'rtl' : 'ltr'} className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+            <div dir={lang === 'fa' ? 'rtl' : 'ltr'} className="min-h-screen bg-slate-950 text-slate-100 flex flex-col max-w-md mx-auto sm:max-w-4xl shadow-2xl border-x border-slate-900">
               
               {notification && (
-                <div className="fixed top-6 right-6 z-50 bg-emerald-500 text-slate-950 px-5 py-3 rounded-2xl font-bold shadow-2xl text-xs">
+                <div className="fixed top-4 left-4 right-4 sm:left-auto sm:right-6 z-50 bg-emerald-500 text-slate-950 px-5 py-3 rounded-2xl font-bold shadow-2xl text-xs text-center">
                   {notification}
                 </div>
               )}
 
-              {/* Header */}
-              <header className="w-full bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40 px-8 py-4 flex items-center justify-between">
+              {/* Header with Professional Logo Emblem */}
+              <header className="w-full bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40 px-4 sm:px-8 py-3.5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-lg shadow-inner">✨</div>
+                  {/* Professional SVG Logo Emblem */}
+                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-amber-500/20 border border-emerald-500/30 flex items-center justify-center shadow-inner">
+                    <svg viewBox="0 0 100 100" className="w-7 h-7">
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="#10b981" strokeWidth="6" strokeDasharray="10 5"/>
+                      <circle cx="50" cy="50" r="22" fill="none" stroke="#f59e0b" strokeWidth="6"/>
+                      <circle cx="50" cy="50" r="8" fill="#10b981"/>
+                    </svg>
+                  </div>
                   <div>
                     <h1 className="text-base font-bold text-white flex items-center gap-2">
-                      {dict.appName} <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-semibold">AFGHAN FINTECH</span>
+                      {dict.appName} <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-semibold">AFGHAN FINTECH</span>
                     </h1>
-                    <p className="text-xs text-slate-400">{dict.tagline}</p>
+                    <p className="text-[11px] text-slate-400 truncate max-w-[180px] sm:max-w-none">{dict.tagline}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="flex p-1 bg-slate-950 rounded-xl border border-slate-800">
-                    <button 
-                      onClick={() => { setPortal('consumer'); setActiveTab('wallet'); }}
-                      className={`px-4 py-2 text-xs font-semibold rounded-lg transition ${portal === 'consumer' ? 'bg-emerald-500 text-slate-950 shadow-md font-bold' : 'text-slate-400 hover:text-white'}`}
-                    >
-                      {dict.consumerPortal}
-                    </button>
-                    <button 
-                      onClick={() => { setPortal('merchant'); setActiveTab('dashboard'); }}
-                      className={`px-4 py-2 text-xs font-semibold rounded-lg transition ${portal === 'merchant' ? 'bg-emerald-500 text-slate-950 shadow-md font-bold' : 'text-slate-400 hover:text-white'}`}
-                    >
-                      {dict.merchantPortal}
-                    </button>
-                  </div>
-
+                <div className="flex items-center gap-2">
                   <button 
                     onClick={() => setLang(lang === 'en' ? 'fa' : 'en')}
-                    className="text-xs px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 transition font-semibold"
+                    className="text-xs px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 transition font-semibold"
                   >
-                    {lang === 'en' ? 'دری / فارسی' : 'English'}
+                    {lang === 'en' ? 'دری' : 'English'}
                   </button>
                 </div>
               </header>
 
-              {/* Sub Navigation Bar */}
-              <div className="w-full bg-slate-900/50 border-b border-slate-800/80 px-8 py-3 flex gap-2">
-                {portal === 'consumer' ? (
-                  <>
-                    <button onClick={() => setActiveTab('wallet')} className={`px-4 py-2 rounded-xl text-xs font-semibold transition ${activeTab === 'wallet' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 hover:bg-slate-900'}`}>{dict.wallet}</button>
-                    <button onClick={() => setActiveTab('transfer')} className={`px-4 py-2 rounded-xl text-xs font-semibold transition ${activeTab === 'transfer' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 hover:bg-slate-900'}`}>{dict.transfer}</button>
-                    <button onClick={() => setActiveTab('scanner')} className={`px-4 py-2 rounded-xl text-xs font-semibold transition ${activeTab === 'scanner' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 hover:bg-slate-900'}`}>{dict.scanner}</button>
-                    <button onClick={() => setActiveTab('history')} className={`px-4 py-2 rounded-xl text-xs font-semibold transition ${activeTab === 'history' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 hover:bg-slate-900'}`}>{dict.transactions}</button>
-                  </>
-                ) : (
-                  <>
-                    <button onClick={() => setActiveTab('dashboard')} className={`px-4 py-2 rounded-xl text-xs font-semibold transition ${activeTab === 'dashboard' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 hover:bg-slate-900'}`}>{dict.dashboard}</button>
-                    <button onClick={() => setActiveTab('debtLedger')} className={`px-4 py-2 rounded-xl text-xs font-semibold transition ${activeTab === 'debtLedger' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 hover:bg-slate-900'}`}>{dict.debtLedger}</button>
-                    <button onClick={() => setActiveTab('counterQr')} className={`px-4 py-2 rounded-xl text-xs font-semibold transition ${activeTab === 'counterQr' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 hover:bg-slate-900'}`}>{dict.counterQr}</button>
-                    <button onClick={() => setActiveTab('taxReports')} className={`px-4 py-2 rounded-xl text-xs font-semibold transition ${activeTab === 'taxReports' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 hover:bg-slate-900'}`}>{dict.taxReports}</button>
-                  </>
-                )}
+              {/* Portal & Sub Navigation Switches */}
+              <div className="bg-slate-900/80 border-b border-slate-800 px-4 sm:px-8 py-3 space-y-3">
+                <div className="flex p-1 bg-slate-950 rounded-xl border border-slate-800">
+                  <button 
+                    onClick={() => { setPortal('consumer'); setActiveTab('wallet'); }}
+                    className={`flex-1 py-2 text-xs font-semibold rounded-lg transition ${portal === 'consumer' ? 'bg-emerald-500 text-slate-950 font-bold shadow' : 'text-slate-400'}`}
+                  >
+                    {dict.consumerPortal}
+                  </button>
+                  <button 
+                    onClick={() => { setPortal('merchant'); setActiveTab('dashboard'); }}
+                    className={`flex-1 py-2 text-xs font-semibold rounded-lg transition ${portal === 'merchant' ? 'bg-emerald-500 text-slate-950 font-bold shadow' : 'text-slate-400'}`}
+                  >
+                    {dict.merchantPortal}
+                  </button>
+                </div>
+
+                <div className="flex gap-2 overflow-x-auto pb-1">
+                  {portal === 'consumer' ? (
+                    <>
+                      <button onClick={() => setActiveTab('wallet')} className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${activeTab === 'wallet' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 bg-slate-950'}`}>{dict.wallet}</button>
+                      <button onClick={() => setActiveTab('transfer')} className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${activeTab === 'transfer' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 bg-slate-950'}`}>{dict.transfer}</button>
+                      <button onClick={() => setActiveTab('scanner')} className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${activeTab === 'scanner' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 bg-slate-950'}`}>{dict.scanner}</button>
+                      <button onClick={() => setActiveTab('history')} className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${activeTab === 'history' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 bg-slate-950'}`}>{dict.transactions}</button>
+                    </>
+                  ) : (
+                    <>
+                      <button onClick={() => setActiveTab('dashboard')} className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${activeTab === 'dashboard' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 bg-slate-950'}`}>{dict.dashboard}</button>
+                      <button onClick={() => setActiveTab('debtLedger')} className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${activeTab === 'debtLedger' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 bg-slate-950'}`}>{dict.debtLedger}</button>
+                      <button onClick={() => setActiveTab('counterQr')} className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${activeTab === 'counterQr' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 bg-slate-950'}`}>{dict.counterQr}</button>
+                      <button onClick={() => setActiveTab('taxReports')} className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${activeTab === 'taxReports' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-400 bg-slate-950'}`}>{dict.taxReports}</button>
+                    </>
+                  )}
+                </div>
               </div>
 
               {/* Main Content Area */}
-              <main className="w-full max-w-7xl mx-auto px-8 py-8 space-y-8">
+              <main className="w-full px-4 sm:px-8 py-6 space-y-6">
 
-                {/* CONSUMER PORTAL */}
                 {portal === 'consumer' && activeTab === 'wallet' && (
-                  <div className="space-y-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl shadow-xl space-y-6">
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 gap-6">
+                      <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl shadow-xl space-y-5">
                         <div className="flex justify-between items-center">
                           <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider">{dict.totalBalance}</span>
-                          <span className="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full font-medium">🛡️ Biometric Secured</span>
+                          <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full font-medium">🛡️ Biometric Secured</span>
                         </div>
                         <div>
-                          <h2 className="text-4xl font-extrabold text-white">${balance.toFixed(2)} <span className="text-sm font-normal text-slate-400">USD</span></h2>
-                          <p className="text-xs text-emerald-400 mt-1">≈ {(balance * 72).toLocaleString()} AFN (Equivalent in AFN)</p>
+                          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">${balance.toFixed(2)} <span className="text-xs sm:text-sm font-normal text-slate-400">USD</span></h2>
+                          <p className="text-xs text-emerald-400 mt-1">≈ {(balance * 72).toLocaleString()} AFN</p>
                         </div>
 
-                        <div className="grid grid-cols-4 gap-3 pt-2">
-                          <button onClick={() => setShowSendModal(true)} className="bg-slate-800 hover:bg-slate-750 border border-slate-700/60 p-4 rounded-2xl flex flex-col items-center justify-center gap-1.5 transition">
-                            <span className="text-emerald-400 text-lg">↗</span>
-                            <span className="text-xs font-semibold text-slate-200">{dict.send}</span>
+                        <div className="grid grid-cols-4 gap-2 pt-1">
+                          <button onClick={() => setShowSendModal(true)} className="bg-slate-800 hover:bg-slate-750 border border-slate-700/60 p-3 rounded-2xl flex flex-col items-center justify-center gap-1 transition">
+                            <span className="text-emerald-400 text-base font-bold">↗</span>
+                            <span className="text-[11px] font-semibold text-slate-200">{dict.send}</span>
                           </button>
-                          <button onClick={() => setActiveTab('scanner')} className="bg-slate-800 hover:bg-slate-750 border border-slate-700/60 p-4 rounded-2xl flex flex-col items-center justify-center gap-1.5 transition">
-                            <span className="text-emerald-400 text-lg">📷</span>
-                            <span className="text-xs font-semibold text-slate-200">{dict.scanQr}</span>
+                          <button onClick={() => setActiveTab('scanner')} className="bg-slate-800 hover:bg-slate-750 border border-slate-700/60 p-3 rounded-2xl flex flex-col items-center justify-center gap-1 transition">
+                            <span className="text-emerald-400 text-base">📷</span>
+                            <span className="text-[11px] font-semibold text-slate-200">{dict.scanQr}</span>
                           </button>
-                          <button onClick={() => showToast("Cash out request initiated")} className="bg-slate-800 hover:bg-slate-750 border border-slate-700/60 p-4 rounded-2xl flex flex-col items-center justify-center gap-1.5 transition">
-                            <span className="text-emerald-400 text-lg">↙</span>
-                            <span className="text-xs font-semibold text-slate-200">{dict.cashOut}</span>
+                          <button onClick={() => showToast("Cash out initiated")} className="bg-slate-800 hover:bg-slate-750 border border-slate-700/60 p-3 rounded-2xl flex flex-col items-center justify-center gap-1 transition">
+                            <span className="text-emerald-400 text-base font-bold">↙</span>
+                            <span className="text-[11px] font-semibold text-slate-200">{dict.cashOut}</span>
                           </button>
-                          <button onClick={() => showToast("Payment request link created")} className="bg-slate-800 hover:bg-slate-750 border border-slate-700/60 p-4 rounded-2xl flex flex-col items-center justify-center gap-1.5 transition">
-                            <span className="text-emerald-400 text-lg">↖</span>
-                            <span className="text-xs font-semibold text-slate-200">{dict.request}</span>
+                          <button onClick={() => showToast("Request link created")} className="bg-slate-800 hover:bg-slate-750 border border-slate-700/60 p-3 rounded-2xl flex flex-col items-center justify-center gap-1 transition">
+                            <span className="text-emerald-400 text-base font-bold">↖</span>
+                            <span className="text-[11px] font-semibold text-slate-200">{dict.request}</span>
                           </button>
                         </div>
                       </div>
 
-                      <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-5 shadow-xl">
+                      <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-4 shadow-xl">
                         <div className="flex justify-between items-center">
                           <div className="flex items-center gap-2">
-                            <span className="text-emerald-400 text-base">🛡️</span>
+                            <span className="text-emerald-400">🛡️</span>
                             <div>
-                              <h3 className="text-sm font-bold text-white">{dict.creditLimit}</h3>
-                              <p className="text-[11px] text-slate-400">Financial Trust Score</p>
+                              <h3 className="text-xs sm:text-sm font-bold text-white">{dict.creditLimit}</h3>
+                              <p className="text-[10px] text-slate-400">Financial Trust Score</p>
                             </div>
                           </div>
-                          <span className="text-xs bg-emerald-500/20 text-emerald-400 px-3.5 py-1 rounded-full font-bold">Tier 1 Verified</span>
+                          <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full font-bold">Verified</span>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-                          <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex flex-col items-center justify-center">
-                            <div className="w-16 h-16 rounded-full border-4 border-emerald-500 flex items-center justify-center text-white font-extrabold text-lg">
-                              740
-                            </div>
-                            <span className="text-[10px] text-slate-400 mt-1">/ 800</span>
+                        <div className="flex items-center gap-4 bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                          <div className="w-14 h-14 rounded-full border-4 border-emerald-500 flex items-center justify-center text-white font-extrabold text-sm shrink-0">
+                            740
                           </div>
-                          <div className="md:col-span-2 space-y-2">
+                          <div className="space-y-1.5 flex-1">
                             <div className="flex justify-between text-xs">
-                              <span className="text-slate-400">Credit Limit:</span>
-                              <span className="font-bold text-white">$300.00 USD <span className="text-slate-400 font-normal">(21,600 AFN)</span></span>
+                              <span className="text-slate-400">Limit:</span>
+                              <span className="font-bold text-white">$300.00</span>
                             </div>
-                            <div className="w-full bg-slate-950 rounded-full h-2.5 overflow-hidden border border-slate-800">
+                            <div className="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-slate-800">
                               <div className="bg-emerald-500 h-full w-3/4"></div>
                             </div>
-                            <div className="flex justify-between text-[11px] text-slate-400">
-                              <span>Available Credit: <strong className="text-emerald-400">$225.00</strong></span>
-                              <span>Used: $75.00</span>
-                            </div>
                           </div>
-                        </div>
-
-                        <div className="p-3.5 bg-slate-950/60 rounded-2xl border border-slate-800/80 flex items-center gap-2.5 text-xs text-slate-300">
-                          <span>📖</span>
-                          <span>Sharia-Compliant Murabaha Micro-line (0% Interest)</span>
                         </div>
                       </div>
                     </div>
 
                     {showSendModal && (
-                      <div className="max-w-md mx-auto bg-slate-900 border border-emerald-500/40 p-6 rounded-3xl space-y-4 shadow-2xl">
+                      <div className="bg-slate-900 border border-emerald-500/40 p-6 rounded-3xl space-y-4 shadow-2xl">
                         <h3 className="text-sm font-bold text-white">Instant P2P Transfer</h3>
                         <form onSubmit={handleSend} className="space-y-3">
                           <input 
@@ -299,7 +293,7 @@
                             required 
                           />
                           <div className="flex gap-3">
-                            <button type="submit" className="flex-1 bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-xs">Confirm Send</button>
+                            <button type="submit" className="flex-1 bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-xs">Confirm</button>
                             <button type="button" onClick={() => setShowSendModal(false)} className="flex-1 bg-slate-800 text-slate-300 font-bold py-3 rounded-xl text-xs">Cancel</button>
                           </div>
                         </form>
@@ -307,89 +301,57 @@
                     )}
 
                     {/* Linked Afghan Banks */}
-                    <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-6 shadow-xl">
+                    <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-4 shadow-xl">
                       <div className="flex justify-between items-center">
                         <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{dict.linkedBanks}</h3>
-                        <button onClick={() => showToast("Bank linking wizard opened")} className="text-xs text-emerald-400 hover:underline font-semibold">+ Add Bank Card</button>
+                        <button onClick={() => showToast("Add bank wizard opened")} className="text-xs text-emerald-400 font-semibold">+ Add Bank</button>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div className="p-5 bg-gradient-to-r from-indigo-950/80 to-slate-900 rounded-2xl border border-indigo-500/30 flex flex-col justify-between h-36">
-                          <div className="flex justify-between items-start">
-                            <span className="font-bold text-white text-base">AIB</span>
-                            <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Primary</span>
-                          </div>
-                          <div>
-                            <p className="text-[11px] text-slate-400">AIB (Afghanistan Intl Bank)</p>
-                            <p className="text-xs font-mono text-slate-300 mt-0.5">•••• 8821</p>
-                          </div>
-                          <div className="flex justify-between text-[11px] text-slate-400">
-                            <span>Mohammad Rashid</span>
-                            <span>Mastercard / Local</span>
-                          </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div className="p-4 bg-gradient-to-r from-indigo-950/80 to-slate-900 rounded-2xl border border-indigo-500/30 space-y-3">
+                          <div className="flex justify-between"><span className="font-bold text-white">AIB</span><span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Primary</span></div>
+                          <p className="text-xs font-mono text-slate-300">•••• 8821</p>
                         </div>
-
-                        <div className="p-5 bg-gradient-to-r from-emerald-950/80 to-slate-900 rounded-2xl border border-emerald-500/30 flex flex-col justify-between h-36">
-                          <div className="flex justify-between items-start">
-                            <span className="font-bold text-white text-base">AZIZI</span>
-                            <span className="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Linked</span>
-                          </div>
-                          <div>
-                            <p className="text-[11px] text-slate-400">Azizi Bank</p>
-                            <p className="text-xs font-mono text-slate-300 mt-0.5">•••• 4109</p>
-                          </div>
-                          <div className="flex justify-between text-[11px] text-slate-400">
-                            <span>Mohammad Rashid</span>
-                            <span>Debit Card</span>
-                          </div>
+                        <div className="p-4 bg-gradient-to-r from-emerald-950/80 to-slate-900 rounded-2xl border border-emerald-500/30 space-y-3">
+                          <div className="flex justify-between"><span className="font-bold text-white">AZIZI</span><span className="text-[9px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Linked</span></div>
+                          <p className="text-xs font-mono text-slate-300">•••• 4109</p>
                         </div>
-
-                        <div className="p-5 bg-gradient-to-r from-amber-950/80 to-slate-900 rounded-2xl border border-amber-500/30 flex flex-col justify-between h-36">
-                          <div className="flex justify-between items-start">
-                            <span className="font-bold text-white text-base">NKB</span>
-                            <span className="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Linked</span>
-                          </div>
-                          <div>
-                            <p className="text-[11px] text-slate-400">New Kabul Bank</p>
-                            <p className="text-xs font-mono text-slate-300 mt-0.5">•••• 3099</p>
-                          </div>
-                          <div className="flex justify-between text-[11px] text-slate-400">
-                            <span>Mohammad Rashid</span>
-                            <span>Payroll / AFN</span>
-                          </div>
+                        <div className="p-4 bg-gradient-to-r from-amber-950/80 to-slate-900 rounded-2xl border border-amber-500/30 space-y-3">
+                          <div className="flex justify-between"><span className="font-bold text-white">NKB</span><span className="text-[9px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Linked</span></div>
+                          <p className="text-xs font-mono text-slate-300">•••• 3099</p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Recent Transactions */}
-                    <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-6 shadow-xl">
-                      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    {/* Recent Transactions with Filter */}
+                    <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-4 shadow-xl">
+                      <div className="flex flex-col gap-3">
                         <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{dict.recentTx}</h3>
                         <input 
                           type="text" 
                           value={searchQuery}
                           onChange={(e) => setSearchQuery(e.target.value)}
-                          placeholder="Search transaction or merchant..." 
-                          className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white w-full md:w-80 focus:outline-none focus:border-emerald-500"
+                          placeholder="Search transactions..." 
+                          className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white w-full focus:outline-none focus:border-emerald-500"
                         />
                       </div>
 
-                      <div className="flex gap-2 pb-2 text-xs">
+                      <div className="flex gap-1.5 overflow-x-auto pb-1 text-xs">
                         {['All', 'Transfers', 'Purchases', 'Payouts'].map(cat => (
                           <button 
                             key={cat} 
                             onClick={() => setTxFilter(cat)}
-                            className={`px-4 py-1.5 rounded-full font-semibold transition ${txFilter === cat ? 'bg-emerald-500 text-slate-950' : 'bg-slate-800 text-slate-400 hover:text-white'}`}
+                            className={`px-3.5 py-1.5 rounded-full font-semibold shrink-0 transition ${txFilter === cat ? 'bg-emerald-500 text-slate-950' : 'bg-slate-800 text-slate-400'}`}
                           >
                             {cat}
                           </button>
                         ))}
                       </div>
 
-                      <div className="space-y-3">
+                      <div className="space-y-2.5">
                         {filteredTransactions.length > 0 ? (
                           filteredTransactions.map(tx => (
-                            <div key={tx.id} className="p-4 bg-slate-950/60 rounded-2xl border border-slate-800/60 flex justify-between items-center transition hover:border-slate-700">
+                            <div key={tx.id} className="p-3.5 bg-slate-950/60 rounded-2xl border border-slate-800 flex justify-between items-center">
                               <div>
                                 <p className="text-xs font-bold text-white">{tx.name}</p>
                                 <p className="text-[10px] text-slate-400">{tx.desc}</p>
@@ -408,10 +370,9 @@
                   </div>
                 )}
 
-                {/* CONSUMER OTHER TABS */}
                 {portal === 'consumer' && activeTab === 'transfer' && (
-                  <div className="max-w-xl mx-auto bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-6">
-                    <h3 className="text-lg font-bold text-white">Instant Peer-to-Peer Transfer</h3>
+                  <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-5">
+                    <h3 className="text-base font-bold text-white">Instant Peer-to-Peer Transfer</h3>
                     <form onSubmit={handleSend} className="space-y-4">
                       <input 
                         type="text" 
@@ -419,7 +380,7 @@
                         placeholder="Recipient Phone / Roze ID"
                         value={recipient}
                         onChange={(e) => setRecipient(e.target.value)}
-                        className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white"
+                        className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white"
                       />
                       <input 
                         type="number" 
@@ -428,9 +389,9 @@
                         placeholder="0.00 USD"
                         value={sendAmount}
                         onChange={(e) => setSendAmount(e.target.value)}
-                        className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white"
+                        className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white"
                       />
-                      <button type="submit" className="w-full bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-sm">
+                      <button type="submit" className="w-full bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-xs">
                         Send Securely
                       </button>
                     </form>
@@ -438,11 +399,11 @@
                 )}
 
                 {portal === 'consumer' && activeTab === 'scanner' && (
-                  <div className="max-w-md mx-auto bg-slate-900 border border-slate-800 p-8 rounded-3xl text-center space-y-6">
-                    <h3 className="text-lg font-bold text-white">Scan Merchant QR Code</h3>
-                    <div className="w-64 h-64 mx-auto bg-slate-800 border-2 border-dashed border-emerald-500/50 rounded-3xl flex flex-col items-center justify-center p-6">
-                      <span className="text-5xl mb-3">📷</span>
-                      <p className="text-xs text-slate-300">Align QR code within frame</p>
+                  <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl text-center space-y-6">
+                    <h3 className="text-base font-bold text-white">Scan Merchant QR Code</h3>
+                    <div className="w-48 h-48 mx-auto bg-slate-800 border-2 border-dashed border-emerald-500/50 rounded-3xl flex flex-col items-center justify-center p-6">
+                      <span className="text-4xl mb-2">📷</span>
+                      <p className="text-[11px] text-slate-300">Align QR code within frame</p>
                     </div>
                     <button onClick={() => showToast("Simulated QR Scanned Successfully!")} className="w-full bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-xs">
                       Simulate Successful Scan
@@ -451,61 +412,62 @@
                 )}
 
                 {portal === 'consumer' && activeTab === 'history' && (
-                  <div className="max-w-3xl mx-auto bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-6">
-                    <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">All Transaction History</h3>
-                    <div className="space-y-3">
+                  <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-4">
+                    <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">All Transaction History</h3>
+                    <div className="space-y-2.5">
                       {transactions.map(tx => (
-                        <div key={tx.id} className="p-4 bg-slate-950/60 rounded-2xl border border-slate-800 flex justify-between items-center text-xs">
+                        <div key={tx.id} className="p-3.5 bg-slate-950/60 rounded-2xl border border-slate-800 flex justify-between items-center text-xs">
                           <div>
                             <p className="font-bold text-white">{tx.name}</p>
                             <p className="text-[10px] text-slate-400">{tx.desc}</p>
                           </div>
-                          <span className={`font-bold text-sm ${tx.isPositive ? 'text-emerald-400' : 'text-rose-400'}`}>{tx.amount}</span>
+                          <span className={`font-bold ${tx.isPositive ? 'text-emerald-400' : 'text-rose-400'}`}>{tx.amount}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 )}
 
-                {/* MERCHANT PORTAL: DASHBOARD */}
+                {/* MERCHANT PORTAL */}
                 {portal === 'merchant' && activeTab === 'dashboard' && (
-                  <div className="space-y-8">
-                    <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl shadow-xl flex justify-between items-center">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h2 className="text-lg font-bold text-white">Kabul Craft & Groceries</h2>
-                          <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full font-semibold">Verified Merchant</span>
+                  <div className="space-y-6">
+                    <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl shadow-xl space-y-4">
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <h2 className="text-base font-bold text-white">Kabul Craft & Groceries</h2>
+                            <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-semibold">Verified</span>
+                          </div>
+                          <p className="text-[11px] text-slate-400 mt-0.5">MID: AF-KB-8842 • AIB (****4921)</p>
                         </div>
-                        <p className="text-xs text-slate-400 mt-1">MID: AF-KB-8842 • Linked Account: AIB (****4921)</p>
+                        <button onClick={() => showToast("Tax PDF Exported!")} className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs px-3.5 py-2 rounded-xl font-semibold">
+                          Export Tax PDF
+                        </button>
                       </div>
-                      <button onClick={() => showToast("Monthly Tax PDF Exported successfully!")} className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs px-4 py-2.5 rounded-xl font-semibold hover:bg-emerald-500/20 transition">
-                        Export Monthly Tax PDF
-                      </button>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-4 shadow-xl">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-2">
                         <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Today's Gross Sales</p>
-                        <h2 className="text-4xl font-extrabold text-white">$412.50 <span className="text-xs font-normal text-slate-400">USD</span></h2>
-                        <p className="text-xs text-emerald-400">≈ 29,700 AFN • 18 Transactions Today</p>
+                        <h2 className="text-3xl font-extrabold text-white">$412.50</h2>
+                        <p className="text-[11px] text-emerald-400">≈ 29,700 AFN • 18 Transactions</p>
                       </div>
 
-                      <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-3 shadow-xl">
-                        <p className="text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
-                          <span>⏱️</span> Automated Daily Settlement
-                        </p>
-                        <p className="text-xs text-slate-300">Today's payout of $412.50 scheduled for 11:59 PM to AIB</p>
-                        <span className="inline-block text-[10px] bg-slate-950 text-slate-400 px-3 py-1.5 rounded-lg border border-slate-800">Direct Express Routing Enabled</span>
+                      <div className="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-2">
+                        <p className="text-xs font-semibold text-emerald-400 flex items-center gap-1.5"><span>⏱️</span> Daily Settlement</p>
+                        <p className="text-xs text-slate-300">Scheduled for 11:59 PM to AIB account</p>
+                        <span className="inline-block text-[9px] bg-slate-950 text-slate-400 px-2.5 py-1 rounded border border-slate-800">Express Routing</span>
                       </div>
                     </div>
 
-                    <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-4 shadow-xl">
+                    {/* Weekly Sales Trend Chart */}
+                    <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-4 shadow-xl">
                       <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Weekly Sales Trend ($)</h3>
-                      <div className="h-48 flex items-end gap-4 pt-4 px-2">
+                      <div className="h-44 flex items-end gap-3 pt-4 px-2">
                         {['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, i) => (
                           <div key={day} className="flex-1 flex flex-col items-center gap-2 h-full justify-end">
-                            <div className="w-full rounded-t-xl bg-gradient-to-t from-emerald-600 to-emerald-400 transition hover:opacity-80 shadow-md" style={{ height: `${[40, 55, 30, 85, 70, 90, 85][i]}%` }}></div>
-                            <span className="text-xs text-slate-400 font-medium">{day}</span>
+                            <div className="w-full rounded-t-xl bg-gradient-to-t from-emerald-600 to-emerald-400 shadow" style={{ height: `${[40, 55, 30, 85, 70, 90, 85][i]}%` }}></div>
+                            <span className="text-[11px] text-slate-400 font-medium">{day}</span>
                           </div>
                         ))}
                       </div>
@@ -513,35 +475,36 @@
                   </div>
                 )}
 
-                {/* MERCHANT PORTAL: FULL SHARIA DEBT LEDGER */}
                 {portal === 'merchant' && activeTab === 'debtLedger' && (
-                  <div className="max-w-4xl mx-auto bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-6 shadow-xl">
-                    <div className="flex justify-between items-center">
+                  <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-5 shadow-xl">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                       <div>
                         <h3 className="text-base font-bold text-white">Sharia Debt Ledger (دفتر قرض)</h3>
-                        <p className="text-xs text-slate-400 mt-0.5">Total Customer Debt Owed: <strong className="text-amber-400">$125.50 USD</strong></p>
+                        <p className="text-xs text-slate-400 mt-0.5">Total Owed: <strong className="text-amber-400">$125.50 USD</strong></p>
                       </div>
-                      <button onClick={() => showToast("Customer tab created")} className="bg-slate-800 border border-slate-700 text-xs px-4 py-2 rounded-xl text-emerald-400 font-semibold">+ Add Customer Tab</button>
+                      <button onClick={() => showToast("Customer tab created")} className="bg-slate-800 border border-slate-700 text-xs px-3.5 py-2 rounded-xl text-emerald-400 font-semibold">+ Add Customer</button>
                     </div>
 
                     <div className="space-y-3">
                       {debts.map(debt => (
-                        <div key={debt.id} className="p-5 bg-slate-950/60 rounded-2xl border border-slate-800 flex justify-between items-center text-xs">
+                        <div key={debt.id} className="p-4 bg-slate-950/60 rounded-2xl border border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs">
                           <div>
                             <div className="flex items-center gap-2">
                               <p className="font-bold text-white text-sm">{debt.name}</p>
-                              <span className="text-[11px] text-slate-400">({debt.phone})</span>
-                              <span className={`text-[10px] px-2 py-0.5 rounded font-bold ${debt.status === 'Pending' ? 'bg-amber-500/20 text-amber-400' : 'bg-emerald-500/20 text-emerald-400'}`}>{debt.status}</span>
+                              <span className={`text-[9px] px-2 py-0.5 rounded font-bold ${debt.status === 'Pending' ? 'bg-amber-500/20 text-amber-400' : 'bg-emerald-500/20 text-emerald-400'}`}>{debt.status}</span>
                             </div>
-                            <p className="text-xs text-slate-400 mt-1">{debt.details}</p>
+                            <p className="text-[10px] text-slate-400">{debt.phone}</p>
+                            <p className="text-[11px] text-slate-300 mt-1">{debt.details}</p>
                           </div>
-                          <div className="text-right">
-                            <p className="font-bold text-rose-400 text-base">${debt.amount.toFixed(2)} USD</p>
-                            <p className="text-xs text-slate-500">{(debt.amount * 72).toLocaleString()} AFN</p>
+                          <div className="text-right w-full sm:w-auto flex sm:flex-col justify-between items-center sm:items-end">
+                            <div>
+                              <p className="font-bold text-rose-400 text-sm sm:text-base">${debt.amount.toFixed(2)} USD</p>
+                              <p className="text-[10px] text-slate-500">{(debt.amount * 72).toLocaleString()} AFN</p>
+                            </div>
                             {debt.status === 'Pending' && (
                               <div className="flex gap-2 mt-2">
-                                <button onClick={() => showToast(`SMS Reminder sent to ${debt.name}`)} className="bg-slate-800 text-slate-300 px-3 py-1 rounded text-xs">📞 Reminder</button>
-                                <button onClick={() => markDebtPaid(debt.id)} className="bg-emerald-500 text-slate-950 px-3 py-1 rounded text-xs font-bold">Mark Paid</button>
+                                <button onClick={() => showToast(`Reminder sent to ${debt.name}`)} className="bg-slate-800 text-slate-300 px-2.5 py-1 rounded text-[11px]">Reminder</button>
+                                <button onClick={() => markDebtPaid(debt.id)} className="bg-emerald-500 text-slate-950 px-2.5 py-1 rounded text-[11px] font-bold">Paid</button>
                               </div>
                             )}
                           </div>
@@ -551,16 +514,15 @@
                   </div>
                 )}
 
-                {/* MERCHANT PORTAL: COUNTER QR STAND */}
                 {portal === 'merchant' && activeTab === 'counterQr' && (
-                  <div className="max-w-2xl mx-auto bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-6 shadow-xl">
+                  <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-6 shadow-xl">
                     <h3 className="text-base font-bold text-white">Counter QR Code Stand Generator</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                      <div className="bg-slate-950 p-6 rounded-3xl border border-slate-800 text-center space-y-3 shadow-inner">
-                        <div className="bg-emerald-500 text-slate-950 text-[10px] font-extrabold py-1.5 rounded-xl tracking-wider">ROZE PAY ACCEPTED HERE</div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                      <div className="bg-slate-950 p-5 rounded-3xl border border-slate-800 text-center space-y-3">
+                        <div className="bg-emerald-500 text-slate-950 text-[9px] font-extrabold py-1.5 rounded-xl">ROZE PAY ACCEPTED HERE</div>
                         <p className="text-xs font-bold text-white">Kabul Craft & Groceries</p>
                         
-                        <div className="w-40 h-40 mx-auto bg-white p-3 rounded-2xl flex items-center justify-center shadow-md">
+                        <div className="w-36 h-36 mx-auto bg-white p-2.5 rounded-2xl flex items-center justify-center">
                           <svg viewBox="0 0 100 100" className="w-full h-full">
                             <path d="M0,0 h35 v35 h-35 z M10,10 h15 v15 h-15 z" fill="#020617"/>
                             <path d="M65,0 h35 v35 h-35 z M75,10 h15 v15 h-15 z" fill="#020617"/>
@@ -579,13 +541,13 @@
                             <rect x="45" y="80" width="12" height="12" fill="#020617"/>
                           </svg>
                         </div>
-                        <p className="text-[10px] text-slate-400">Scan with Roze Pay to Pay</p>
+                        <p className="text-[9px] text-slate-400">Scan to Pay</p>
                       </div>
 
-                      <div className="space-y-4">
+                      <div className="space-y-3">
                         <div>
-                          <label className="text-xs text-slate-400 block mb-1">Generate Specific Amount QR</label>
-                          <input type="number" placeholder="Enter amount in USD (Optional)" className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white" />
+                          <label className="text-xs text-slate-400 block mb-1">Specific Amount ($ USD)</label>
+                          <input type="number" placeholder="Optional amount" className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white" />
                         </div>
                         <button onClick={() => showToast("QR Stand PDF Downloaded!")} className="w-full bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-xs">Download Stand PDF</button>
                       </div>
@@ -593,21 +555,14 @@
                   </div>
                 )}
 
-                {/* MERCHANT PORTAL: TAX & REPORTS */}
                 {portal === 'merchant' && activeTab === 'taxReports' && (
-                  <div className="max-w-xl mx-auto bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-6 shadow-xl">
+                  <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-5 shadow-xl">
                     <h3 className="text-base font-bold text-white">Tax & Business Reports</h3>
-                    <div className="p-5 bg-slate-950/60 rounded-2xl border border-slate-800 space-y-3 text-xs">
-                      <div className="flex justify-between">
-                        <span className="text-slate-400">Monthly Volume</span>
-                        <span className="font-bold text-white text-sm">$12,450.00</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-slate-400">MDR Fee (1.8%)</span>
-                        <span className="font-bold text-rose-400 text-sm">-$224.10</span>
-                      </div>
+                    <div className="p-4 bg-slate-950/60 rounded-2xl border border-slate-800 space-y-2 text-xs">
+                      <div className="flex justify-between"><span className="text-slate-400">Monthly Volume</span><span className="font-bold text-white">$12,450.00</span></div>
+                      <div className="flex justify-between"><span className="text-slate-400">MDR Fee (1.8%)</span><span className="font-bold text-rose-400">-$224.10</span></div>
                     </div>
-                    <button onClick={() => showToast("PDF Tax Report Downloaded!")} className="w-full bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-xs">
+                    <button onClick={() => showToast("Tax Report Downloaded!")} className="w-full bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl text-xs">
                       Export Digital Summary PDF
                     </button>
                   </div>
